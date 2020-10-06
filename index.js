@@ -23,21 +23,32 @@ const startServer = async (client) => {
 
   // Listening on message
   client.onAnyMessage((message) => {
-    const args = message.body.slice(prefix.length).split(/ +/);
+    let args = message.body.slice(prefix.length).split(/ +/);
+    if (message.isMedia) {
+      args = message.caption.slice(prefix.length).split(/ +/);
+    }
     const commandName = args.shift().toLowerCase();
     const command = commands.get(commandName);
 
-    if (!message.body.startsWith(prefix)) return;
+    if (!message.body.startsWith(prefix) && !message.caption.startsWith(prefix))
+      return;
 
     try {
-      command.execute(message, client);
+      command.execute(message, client, args);
     } catch (error) {
       console.error(error);
-      client.reply(
-        message.from,
-        `Invalid command.\nUse ${prefix}help to see all available commands `,
-        message.id
-      );
+      if (message.isGroupMsg) {
+        client.sendTextWithMentions(
+          message.from,
+          `@${message.author} Invalid command.\nUse ${prefix}help to see all available commands`
+        );
+      } else {
+        client.reply(
+          message.from,
+          `Invalid command.\nUse ${prefix}help to see all available commands`,
+          message.id
+        );
+      }
     }
   });
 };

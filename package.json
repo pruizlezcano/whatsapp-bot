@@ -4,6 +4,7 @@
   "description": "Bot for whatsapp",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon ./index.js",
     "start": "node ./index.js"
   },
   "keywords": [],
@@ -11,5 +12,12 @@
   "license": "ISC",
   "dependencies": {
     "@open-wa/wa-automate": "^2.0.28"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "node_modules/*",
+      "session.data.json"
+    ],
+    "delay": "2500"
   }
 }
