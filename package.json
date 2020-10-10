@@ -14,7 +14,8 @@
     "@open-wa/wa-automate": "^2.0.29",
     "axios": "^0.20.0",
     "ffmpeg-static": "^4.2.7",
-    "video-url-link": "^0.1.4"
+    "video-url-link": "^0.1.4",
+    "ytdl-core": "^3.3.0"
   },
   "nodemonConfig": {
     "ignore": [
