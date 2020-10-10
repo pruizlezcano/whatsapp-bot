@@ -23,6 +23,7 @@ const startServer = async (client) => {
 
   // Listening on message
   client.onAnyMessage((message) => {
+    console.log(message.mimetype);
     let args = message.body.slice(prefix.length).split(/ +/);
     if (message.isMedia) {
       args = message.caption.slice(prefix.length).split(/ +/);
@@ -36,7 +37,6 @@ const startServer = async (client) => {
     try {
       command.execute(message, client, args);
     } catch (error) {
-      console.error(error);
       if (message.isGroupMsg) {
         client.sendTextWithMentions(
           message.from,
@@ -49,10 +49,34 @@ const startServer = async (client) => {
           message.id
         );
       }
+      console.error(error);
     }
   });
 };
 
-create('session')
+const options = {
+  headless: true,
+  qrRefreshS: 20,
+  qrTimeout: 0,
+  authTimeout: 0,
+  autoRefresh: true,
+  restartOnCrash: startServer,
+  cacheEnabled: false,
+  // executablePath: execPath,
+  useChrome: true,
+  killProcessOnBrowserClose: true,
+  throwErrorOnTosBlock: false,
+  chromiumArgs: [
+    '--no-sandbox',
+    '--disable-setuid-sandbox',
+    '--aggressive-cache-discard',
+    '--disable-cache',
+    '--disable-application-cache',
+    '--disable-offline-load-stale-cache',
+    '--disk-cache-size=0',
+  ],
+};
+
+create('session', options)
   .then(async (client) => startServer(client))
   .catch((error) => console.log(error));
