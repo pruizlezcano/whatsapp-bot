@@ -7,8 +7,8 @@ Bot for whatsapp
 - [x] Image to sticker
 - [ ] Gif to sticker
 - [ ] Video to sticker
-- [ ] Youtube download
-- [ ] Twitter download
+- [ ] Youtube downloader
+- [x] Twitter downloader
 - [ ] Random meme
 - [ ] Flip coin
 - [ ] Translate
