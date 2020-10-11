@@ -2,6 +2,7 @@ const { decryptMedia } = require('@open-wa/wa-decrypt');
 
 module.exports = {
   name: 'sticker',
+  description: 'Convert image to sticker',
   async execute(message, client, args) {
     const isUrl = new RegExp(
       /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/gi

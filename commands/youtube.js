@@ -4,7 +4,7 @@ const shortener = require('../utils/shortener');
 
 module.exports = {
   name: 'youtube',
-  description: 'Download video from Twitter',
+  description: 'Download video from YouTube',
   async execute(message, client, args) {
     let url = undefined;
     if (!message.quotedMsg) {
