@@ -23,7 +23,6 @@ const startServer = async (client) => {
 
   // Listening on message
   client.onAnyMessage((message) => {
-    console.log(message.mimetype);
     let args = message.body.slice(prefix.length).split(/ +/);
     if (message.isMedia) {
       args = message.caption.slice(prefix.length).split(/ +/);
