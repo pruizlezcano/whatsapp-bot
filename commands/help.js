@@ -12,9 +12,9 @@ module.exports = {
 
     for (const file of commandFiles) {
       const command = require(`./${file}`);
-      str += `*${prefix}${command.name}*:   ${command.description} \n`;
+      str += `*${prefix}${command.name}*: ${command.description} \n`;
     }
 
-    client.sendText(message.chatId, str);
+    client.reply(message.chatId, str, message.id);
   },
 };

@@ -64,7 +64,7 @@ const options = {
   useChrome: true,
   killProcessOnBrowserClose: true,
   throwErrorOnTosBlock: false,
-  browserArgs: [
+  args: [
     '--no-sandbox',
     '--disable-setuid-sandbox',
     '--aggressive-cache-discard',

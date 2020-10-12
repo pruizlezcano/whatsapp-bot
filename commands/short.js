@@ -12,6 +12,6 @@ module.exports = {
     }
     const shortUrl = await shortener(url);
     console.log('shortUrl', shortUrl);
-    await client.reply(message.from, shortUrl, message.id);
+    await client.reply(message.chatId, shortUrl, message.id);
   },
 };

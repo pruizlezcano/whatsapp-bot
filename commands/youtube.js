@@ -9,7 +9,7 @@ module.exports = {
     if (!message.quotedMsg) {
       url = args[0];
     } else {
-      console.log(message.quotedMsg);
+      url = message.quotedMsg.canonicalUrl;
     }
     const isUrl = new RegExp(
       /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/gi
