@@ -1,4 +1,3 @@
-const fs = require('fs');
 const ytdl = require('ytdl-core');
 const shortener = require('../utils/shortener');
 
@@ -18,22 +17,21 @@ module.exports = {
     if (!url.match(isUrl) & !url.includes('youtube.com'))
       return client.reply(message.chatId, 'Invalid URL', message.id);
     await client.reply(message.from, `Loading...`, message.id);
-    const filename = './media/youtube.mp4';
-    try {
-      fs.mkdirSync('./media');
-    } catch (error) {}
-    const video = await ytdl.getInfo(url, {
-      filter: (format) => format.container === 'mp4',
-    });
-
-    const videoUrl = video.formats.sort(
+    const video = await ytdl.getInfo(url);
+    const videoSort = video.formats.sort(
       (a, b) => parseInt(b.height) - parseInt(a.height)
-    )[0].url;
-    const shortUrl = await shortener(videoUrl);
+    );
+    const videoData = videoSort.filter(
+      (format) =>
+        format.container === 'mp4' &&
+        format.hasAudio === true &&
+        format.hasVideo === true
+    )[0];
+    const shortUrl = await shortener(videoData.url);
     console.log('Video link: ' + shortUrl);
     await client.sendFileFromUrl(
       message.chatId,
-      videoUrl,
+      videoData.url,
       'youtube.mp4',
       `Download link: ${shortUrl}`
     );
