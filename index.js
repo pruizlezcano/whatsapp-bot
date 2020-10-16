@@ -2,6 +2,7 @@ const { create } = require('@open-wa/wa-automate');
 const { prefix, token } = require('./config/config');
 const fs = require('fs');
 const http = require('http');
+const chalk = require('chalk');
 
 // Heroku R10 error
 http
@@ -11,11 +12,11 @@ http
   })
   .listen(process.env.PORT || 3000); //the server object listens on port 8080
 
-// Token
-const file = fs.readdirSync('./').some((i) => i === 'session.data.json');
-if (file) {
-  fs.writeFileSync('./session.data.json', token);
-}
+// // Token
+// const file = fs.readdirSync('./').some((i) => i === 'session.data.json');
+// if (file) {
+//   fs.writeFileSync('./session.data.json', token);
+// }
 
 const startServer = async (client) => {
   console.log('[SERVER] Server Started!');
@@ -50,6 +51,12 @@ const startServer = async (client) => {
 
     try {
       command.execute(message, client, args);
+      console.log(
+        `[COMMAND] ${chalk.green(commandName)} from ${chalk.cyan(
+          message.sender.pushname,
+          message.sender.id
+        )}`
+      );
     } catch (error) {
       if (message.isGroupMsg) {
         client.sendTextWithMentions(
