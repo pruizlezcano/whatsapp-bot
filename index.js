@@ -15,13 +15,6 @@ http
 // Token
 fs.writeFileSync('./session.data.json', token);
 
-// Log token
-setInterval(function () {
-  const gentoken = fs.readFileSync('./session.data.json', {
-    encoding: 'utf-8',
-  });
-  console.log(gentoken);
-}, 5000);
 const startServer = async (client) => {
   console.log('[SERVER] Server Started!');
   // Force it to keep the current session
@@ -40,6 +33,12 @@ const startServer = async (client) => {
     const command = require(`./commands/${file}`);
     commands.set(command.name, command);
   }
+
+  // Log token
+  const gentoken = fs.readFileSync('./session.data.json', {
+    encoding: 'utf-8',
+  });
+  console.log(gentoken);
 
   // Listening on message
   client.onAnyMessage((message) => {
