@@ -13,10 +13,8 @@ http
   .listen(process.env.PORT || 3000); //the server object listens on port 8080
 
 // Token
-const file = fs.readdirSync('./').some((i) => i === 'session.data.json');
-if (file) {
-  fs.writeFileSync('./session.data.json', token);
-}
+fs.writeFileSync('./session.data.json', token);
+
 // Log token
 setInterval(function () {
   const gentoken = fs.readFileSync('./session.data.json', {
