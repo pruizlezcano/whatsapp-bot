@@ -45,6 +45,11 @@ module.exports = {
         'twitter.mp4',
         `Download link: ${shortUrl}`
       );
+    } else {
+      client.sendText(
+        message.chatId,
+        `An error occurred. Maybe this tweet is not a video`
+      );
     }
   },
 };
