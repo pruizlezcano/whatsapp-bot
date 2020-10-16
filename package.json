@@ -15,6 +15,7 @@
     "axios": "^0.20.0",
     "env-cmd": "^10.1.0",
     "ffmpeg-static": "^4.2.7",
+    "moment": "^2.29.1",
     "video-url-link": "^0.1.5",
     "ytdl-core": "^3.3.0"
   },
