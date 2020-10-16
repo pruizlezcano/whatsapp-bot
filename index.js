@@ -12,10 +12,6 @@ http
   })
   .listen(process.env.PORT || 3000); //the server object listens on port 8080
 
-// Log token
-const gentoken = fs.readFileSync('./session.data.json', { encoding: 'utf-8' });
-console.log(gentoken);
-
 // // Token
 // const file = fs.readdirSync('./').some((i) => i === 'session.data.json');
 // if (file) {
@@ -40,6 +36,13 @@ const startServer = async (client) => {
     const command = require(`./commands/${file}`);
     commands.set(command.name, command);
   }
+  // Log token
+  setInterval(function () {
+    const gentoken = fs.readFileSync('./session.data.json', {
+      encoding: 'utf-8',
+    });
+    console.log(gentoken);
+  }, 5000);
 
   // Listening on message
   client.onAnyMessage((message) => {
