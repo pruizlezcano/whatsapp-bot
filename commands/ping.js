@@ -5,7 +5,7 @@ module.exports = {
     return client.sendText(
       message.chatId,
       `🏓 *Pong!*\n Latency is ${parseFloat(
-        message.timestamp - Date.now() / 1000
+        Date.now() - message.timestamp / 1000
       ).toFixed(4)}ms.`
     );
   },
