@@ -4,7 +4,7 @@
   "description": "Bot for whatsapp",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./index.js",
+    "dev": "env-cmd -f ./config/dev.env nodemon ./index.js",
     "start": "node ./index.js"
   },
   "keywords": [],
@@ -13,8 +13,9 @@
   "dependencies": {
     "@open-wa/wa-automate": "^2.0.29",
     "axios": "^0.20.0",
+    "env-cmd": "^10.1.0",
     "ffmpeg-static": "^4.2.7",
-    "video-url-link": "^0.1.4",
+    "video-url-link": "^0.1.5",
     "ytdl-core": "^3.3.0"
   },
   "nodemonConfig": {

@@ -9,7 +9,9 @@ Bot for whatsapp
 - [ ] Video to sticker
 - [x] Youtube downloader
 - [x] Twitter downloader
-- [ ] Random meme
-- [ ] Flip coin
-- [ ] Translate
+- [x] Instagram downloader
+- [x] Random meme
+- [x] Random number
+- [x] Translate
 - [x] Url shortener
+- [x] Joke
