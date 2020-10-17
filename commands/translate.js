@@ -13,8 +13,8 @@ module.exports = {
       text = message.quotedMsg.body.split('\n').join(' ');
     }
     const to = args.shift();
-    console.log(text);
+    text = args.join(' ');
     const translate = await translator(text, to);
-    await client.reply(message.from, translate, message.id);
+    await client.reply(message.from, `"${translate}"`, message.id);
   },
 };
