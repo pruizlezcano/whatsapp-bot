@@ -4,6 +4,7 @@ const shortener = require('../utils/shortener');
 module.exports = {
   name: 'youtube',
   description: 'Download video from YouTube',
+  usage: 'youtube [url]\nYou can use a queted message instead a url',
   async execute(message, client, args) {
     let url = undefined;
     if (!message.quotedMsg) {
