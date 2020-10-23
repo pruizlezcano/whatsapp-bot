@@ -1,6 +1,7 @@
 module.exports = {
   name: 'everyone',
   description: 'Tag everyone',
+  usage: 'everyone',
   async execute(message, client) {
     if (!message.isGroupMsg) {
       return client.sendTextWithMentions(

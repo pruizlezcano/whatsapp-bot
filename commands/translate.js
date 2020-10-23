@@ -2,6 +2,8 @@ const translator = require('../utils/transaltor');
 module.exports = {
   name: 'translate',
   description: 'Translate text to a given language',
+  usage:
+    'translate language message...\nlang is the 2 letter code of the language (en,fr,es,de,...)',
   async execute(message, client, args) {
     let text = '';
     if (!message.quotedMsg) {

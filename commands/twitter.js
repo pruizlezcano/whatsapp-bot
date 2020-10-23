@@ -16,6 +16,7 @@ const tweet = (url) =>
 module.exports = {
   name: 'twitter',
   description: 'Download video from Twitter',
+  usage: 'twitter [url]\nYou can use a queted message instead a url',
   async execute(message, client, args) {
     let url = undefined;
     if (!message.quotedMsg) {

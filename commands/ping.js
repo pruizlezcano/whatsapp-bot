@@ -3,6 +3,7 @@ const moment = require('moment');
 module.exports = {
   name: 'ping',
   description: 'Test if the bot is alive',
+  usage: 'ping',
   execute(message, client) {
     return client.sendText(
       message.chatId,

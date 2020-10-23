@@ -1,6 +1,7 @@
 module.exports = {
   name: 'fire',
   description: 'Send the same message multiple times',
+  usage: 'fire [here] counter user message...',
   execute(message, client, args) {
     let chat = undefined;
     let user = undefined;

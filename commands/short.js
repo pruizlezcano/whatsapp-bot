@@ -3,6 +3,7 @@ const shortener = require('../utils/shortener');
 module.exports = {
   name: 'short',
   description: 'Url shortener',
+  usage: 'short url',
   async execute(message, client, args) {
     let url = undefined;
     if (!message.quotedMsg) {

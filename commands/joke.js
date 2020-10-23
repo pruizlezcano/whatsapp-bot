@@ -2,6 +2,7 @@ const axios = require('axios');
 module.exports = {
   name: 'joke',
   description: 'Send a joke',
+  usage: 'joke [pr]\n use pr for programming jokes',
   async execute(message, client, args) {
     let data = undefined;
     if (args[0] === 'pr') {

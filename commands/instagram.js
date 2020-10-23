@@ -16,6 +16,7 @@ const post = (url) =>
 module.exports = {
   name: 'instagram',
   description: 'Download video or photo from Instagram',
+  usage: 'instagram [url]\nYou can use a queted message instead a url',
   async execute(message, client, args) {
     let url = undefined;
     if (!message.quotedMsg) {
