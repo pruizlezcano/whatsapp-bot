@@ -9,7 +9,7 @@ module.exports = {
     let count = undefined;
     if (args[0] === 'here') {
       count = args[1];
-      user = args[2];
+      user = message.mentionedJidList[0];
       chat = message.chat.id;
       msg = args.slice(3).join(' ');
       for (let i = 0; i < count; i++) {
@@ -17,11 +17,13 @@ module.exports = {
       }
     } else {
       count = args[0];
-      chat = `${args[1].slice(1)}@c.us`;
+      chat = message.mentionedJidList[0];
+      console.log(chat);
       msg = args.slice(2).join(' ');
       for (let i = 0; i < count; i++) {
         client.sendText(chat, msg);
       }
     }
+    return client.reply(message.chatId, 'Done', message.id);
   },
 };
