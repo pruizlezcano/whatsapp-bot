@@ -12,10 +12,10 @@ module.exports = {
       const group = await client.getGroupMembersId(message.chatId);
       let mentions = '';
       const host = `${await client.getHostNumber()}@c.us`;
-      console.log(host);
       for (id of group) {
         if (id != message.sender.id && id != host) {
-          mentions = mentions + `@${id}`;
+          const user = `@${id.slice(0, id.indexOf('@'))}`;
+          mentions = mentions + ` ${user}`;
         }
       }
       if (mentions === '') {
