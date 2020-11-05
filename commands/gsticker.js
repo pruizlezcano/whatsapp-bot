@@ -7,7 +7,7 @@ ffmpeg.setFfmpegPath(ffmpegPath);
 
 module.exports = {
   name: 'gsticker',
-  description: 'Convert video to gif stickern (not working)',
+  description: 'Convert video/gif to sticker',
   usage: 'gsticker with a quoted message or in the video/gif caption',
   async execute(message, client, args, hostname) {
     const { isMedia, quotedMsg, chatId, mimetype } = message;
