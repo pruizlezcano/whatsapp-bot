@@ -16,6 +16,7 @@
     "axios": "^0.21.0",
     "bufferutil": "^4.0.2",
     "env-cmd": "^10.1.0",
+    "got": "^11.8.0",
     "moment": "^2.29.1",
     "utf-8-validate": "^5.0.3",
     "video-url-link": "^0.1.5",
