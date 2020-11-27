@@ -14,8 +14,8 @@ module.exports = {
       const host = `${await client.getHostNumber()}@c.us`;
       for (id of group) {
         if (id != message.sender.id && id != host) {
-          const user = `@${id.slice(0, id.indexOf('@'))}`;
-          mentions = mentions + ` ${user}`;
+          const user = id.slice(0, id.indexOf('@'));
+          mentions = mentions + ` @${user}`;
         }
       }
       if (mentions === '') {
