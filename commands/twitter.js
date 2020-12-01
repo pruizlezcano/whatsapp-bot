@@ -6,8 +6,8 @@ const tweet = (url) =>
     console.log('Get metadata from =>', url);
     twitter.getInfo(url, {}, (error, info) => {
       if (error) {
-        console.error(err);
-        reject(err);
+        console.error(error);
+        reject(error);
       } else {
         resolve(info);
       }
