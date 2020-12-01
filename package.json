@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.0.20",
-    "@open-wa/wa-automate": "^3.0.12",
+    "@open-wa/wa-automate": "^3.1.1",
     "axios": "^0.21.0",
     "bufferutil": "^4.0.2",
     "env-cmd": "^10.1.0",
@@ -20,7 +20,7 @@
     "moment": "^2.29.1",
     "utf-8-validate": "^5.0.3",
     "video-url-link": "^0.1.5",
-    "ytdl-core": "^4.0.3"
+    "ytdl-core": "^4.1.1"
   },
   "nodemonConfig": {
     "ignore": [

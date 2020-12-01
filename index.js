@@ -100,6 +100,6 @@ const options = {
   ],
 };
 
-create('session', options)
+create(options)
   .then(async (client) => startServer(client))
   .catch((error) => console.log(error));
