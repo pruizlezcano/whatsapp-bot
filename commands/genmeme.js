@@ -196,6 +196,31 @@ const memeAlias = {
     id: 131087935,
     url: 'https://imgflip.com/memetemplate/224667758/Balloon',
   },
+  owmercy: {
+    id: 223642538,
+    url: 'https://imgflip.com/memetemplate/223642538/Overwatch-Mercy-Meme',
+  },
+  homies: {
+    id: 216523697,
+    url: 'https://imgflip.com/memetemplate/216523697/all-my-homies-hate',
+  },
+  arrowknight: {
+    id: 238694077,
+    url:
+      'https://imgflip.com/memetemplate/238694077/Knight-with-arrow-in-helmet',
+  },
+  flextape: {
+    id: 166969924,
+    url: 'https://imgflip.com/memetemplate/166969924/Flex-Tape',
+  },
+  fbigoogle: {
+    id: 189134812,
+    url: 'https://imgflip.com/memetemplate/189134812/Billys-FBI-Agent',
+  },
+  fbimessage: {
+    id: 127898411,
+    url: 'https://imgflip.com/memetemplate/127898411/why-is-the-FBI-here',
+  },
 };
 module.exports = {
   name: 'genmeme',
@@ -210,10 +235,13 @@ module.exports = {
       }
       await client.reply(message.chatId, reply, message.id);
     } else {
-      let meme = memeAlias[args[0]].id;
+      let meme = memeAlias[args[0]];
       if (meme == undefined) {
         meme = args[0];
+      } else {
+        meme = meme.id;
       }
+      console.log(meme);
       args.shift();
       const text = args.join(' ').split(';');
       const imgflip = new Imgflip({
