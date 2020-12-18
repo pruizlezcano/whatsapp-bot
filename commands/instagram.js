@@ -1,11 +1,11 @@
-const instagramdw = require('../utils/instagramdw');
+const youtubedl = require('youtube-dl');
 const shortener = require('../utils/shortener');
 
 const post = (url) =>
   new Promise((resolve, reject) => {
     console.log('Get metadata from =>', url);
-    instagramdw.getInfo(url, {}, (error, info) => {
-      if (error) {
+    youtubedl.getInfo(url, [], function (err, info) {
+      if (err) {
         console.error(err);
         reject(err);
       } else {
@@ -13,6 +13,7 @@ const post = (url) =>
       }
     });
   });
+
 module.exports = {
   name: 'instagram',
   description: 'Download video or photo from Instagram',
@@ -35,29 +36,29 @@ module.exports = {
     }
     await client.reply(message.from, `Loading...`, message.id);
 
-    const data = await post(url);
-    if (data) {
-      if (data.list[0].video) {
-        const shortUrl = await shortener(data.list[0].video);
-        console.log('Video link: ' + shortUrl);
-        await client.sendFileFromUrl(
-          message.chatId,
-          data.list[0].video,
-          'instagram.mp4',
-          `Download link: ${shortUrl}`
-        );
-      } else if (data.list[0].image) {
-        await client.sendFileFromUrl(
-          message.chatId,
-          data.list[0].image,
-          'instagram.jpeg'
-        );
-      }
-    } else {
+    let data = undefined;
+    try {
+      data = await post(url);
+    } catch (e) {
       client.sendText(
         message.chatId,
         `An error occurred. Maybe the account is private`
       );
+    }
+    if (data) {
+      console.log(data);
+      if (data.ext == 'mp4') {
+        const shortUrl = await shortener(data.url);
+        console.log('Video link: ' + shortUrl);
+        await client.sendFileFromUrl(
+          message.chatId,
+          data.url,
+          'instagram.mp4',
+          `Download link: ${shortUrl}`
+        );
+      } else {
+        client.sendText(message.chatId, 'That is not a video');
+      }
     }
   },
 };
