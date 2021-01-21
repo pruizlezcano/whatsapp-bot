@@ -22,7 +22,7 @@ const memeAlias = {
     id: 409403,
     url: 'https://imgflip.com/memetemplate/Obi-Wan-Kenobi',
   },
-  siderman: {
+  spiderman: {
     id: 110133729,
     url:
       'https://imgflip.com/memetemplate/110133729/spiderman-pointing-at-spiderman',
