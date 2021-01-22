@@ -12,8 +12,8 @@ http
   })
   .listen(process.env.PORT || 3000); //the server object listens on port 8080
 
-// Token
-fs.writeFileSync('./session.data.json', token);
+// // Token
+// fs.writeFileSync('./session.data.json', token);
 
 const startServer = async (client) => {
   console.log('[SERVER] Server Started!');
@@ -34,11 +34,11 @@ const startServer = async (client) => {
     commands.set(command.name, command);
   }
 
-  // Log token
-  const gentoken = fs.readFileSync('./session.data.json', {
-    encoding: 'utf-8',
-  });
-  console.log(gentoken);
+  // // Log token
+  // const gentoken = fs.readFileSync('./session.data.json', {
+  //   encoding: 'utf-8',
+  // });
+  // console.log(gentoken);
 
   // Listening on message
   client.onAnyMessage((message) => {
@@ -80,6 +80,7 @@ const startServer = async (client) => {
 
 const options = {
   headless: true,
+  inDocker: true,
   qrRefreshS: 20,
   qrTimeout: 0,
   authTimeout: 0,

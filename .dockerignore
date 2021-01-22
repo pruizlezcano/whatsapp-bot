@@ -1,0 +1,7 @@
+node_modules
+.github
+.gitignore
+node_persist
+config/dev.env
+session.data.json
+debug.log
