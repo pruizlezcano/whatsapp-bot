@@ -1,4 +1,13 @@
-# 1.1.0 (2021-01-21)
+# [1.2.0](https://github.com/pruizlezcano/whatsapp-bot/compare/v1.1.0...v1.2.0) (2021-01-22)
+
+
+### Features
+
+* docker image ([9234fb6](https://github.com/pruizlezcano/whatsapp-bot/commit/9234fb63bb8962810960199e78c12c32bcc13e36))
+
+
+
+# [1.1.0](https://github.com/pruizlezcano/whatsapp-bot/compare/90f954171a6da70141985d3df819ffeb33b89b80...v1.1.0) (2021-01-21)
 
 
 ### Bug Fixes
