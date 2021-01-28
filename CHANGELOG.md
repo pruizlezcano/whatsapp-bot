@@ -1,3 +1,12 @@
+## [1.2.1](https://github.com/pruizlezcano/whatsapp-bot/compare/v1.2.0...v1.2.1) (2021-01-28)
+
+
+### Bug Fixes
+
+* **translate:** not working whith a quoted message ([302e4a7](https://github.com/pruizlezcano/whatsapp-bot/commit/302e4a7827cc59940c8e70b30a43b2ecd6f51b8a))
+
+
+
 # [1.2.0](https://github.com/pruizlezcano/whatsapp-bot/compare/v1.1.0...v1.2.0) (2021-01-22)
 
 
