@@ -12,15 +12,15 @@
   "license": "ISC",
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.0.20",
-    "@open-wa/wa-automate": "^3.1.15",
+    "@open-wa/wa-automate": "^3.9.9",
     "axios": "^0.21.1",
     "bufferutil": "^4.0.3",
     "env-cmd": "^10.1.0",
-    "got": "^11.8.1",
+    "got": "^11.8.2",
     "moment": "^2.29.1",
     "utf-8-validate": "^5.0.4",
     "youtube-dl": "^3.1.0",
-    "ytdl-core": "^4.4.4"
+    "ytdl-core": "^4.5.0"
   },
   "nodemonConfig": {
     "ignore": [

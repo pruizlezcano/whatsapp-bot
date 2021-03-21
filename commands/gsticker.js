@@ -1,15 +1,10 @@
 const { decryptMedia } = require('@open-wa/wa-decrypt');
-const fs = require('fs');
-const { execSync } = require('child_process');
-const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
-const ffmpeg = require('fluent-ffmpeg');
-ffmpeg.setFfmpegPath(ffmpegPath);
 
 module.exports = {
   name: 'gsticker',
   description: 'Convert video/gif to sticker',
   usage: 'gsticker with a quoted message or in the video/gif caption',
-  async execute(message, client, args, hostname) {
+  async execute(message, client) {
     const { isMedia, quotedMsg, chatId, mimetype } = message;
     try {
       if (isMedia && message.type == 'video') {

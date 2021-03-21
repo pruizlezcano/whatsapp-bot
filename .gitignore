@@ -2,3 +2,4 @@
 node_modules
 session.data.json
 config/dev.env
+logs/

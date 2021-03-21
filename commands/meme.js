@@ -7,7 +7,6 @@ module.exports = {
     const { data } = await axios.get(
       'https://meme-api.herokuapp.com/gimme/dankmemes'
     );
-    console.log(data);
     await client.sendFileFromUrl(
       message.chatId,
       data.url,
